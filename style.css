@@ -1,33 +1,55 @@
+/* CSS Variables - Light Theme */
+:root {
+    --bg-color: #f4f6f9;
+    --text-color: #333;
+    --card-color: #ffffff;
+    --header-color: #222;
+    --button-color: #0066cc;
+}
+
+/* Dark Theme */
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-color: #1e1e1e;
+    --header-color: #000;
+    --button-color: #3399ff;
+}
+
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Mobile First */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
+    transition: 0.4s;
 }
 
-/* Header */
+/* Flexbox Navigation */
 header {
-    background-color: #222;
+    background: var(--header-color);
     color: white;
     padding: 20px;
 }
 
 header h1 {
     text-align: center;
-    margin-bottom: 10px;
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 nav a {
@@ -40,116 +62,127 @@ nav a:hover {
     color: #00bfff;
 }
 
-/* Main content */
+/* Main Layout */
 main {
-    width: 80%;
-    margin: 40px auto;
+    padding: 20px;
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    gap: 20px;
 }
 
-/* Welcome section */
-section {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
-    margin-bottom: 25px;
+/* CSS Grid for sections */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* Cards */
+section,
+article {
+    background: var(--card-color);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
     text-align: center;
 }
 
-section h2 {
-    margin-bottom: 20px;
-    font-size: 32px;
-}
-
-section p {
-    font-size: 18px;
-    margin-top: 10px;
+h2 {
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 /* Profile image */
 img {
-    width: 200px;
-    height: 250px;
-    border-radius: 15px;
+    width: 180px;
+    height: 220px;
     object-fit: cover;
-    margin: 15px 0;
-    border: 3px solid #222;
+    border-radius: 15px;
+    display: block;
+    margin: 20px auto;
 }
 
-/* Projects */
+/* Project Grid */
 article {
-    margin-top: 20px;
-    padding: 15px;
-    border-left: 5px solid #222;
-    background-color: #f9f9f9;
-    text-align: left;
+    margin-top: 15px;
 }
 
-/* Contact Form */
+/* Form Flexbox */
 form {
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
     display: flex;
     flex-direction: column;
-}
-
-label {
-    text-align: left;
-    margin-top: 10px;
-    font-weight: bold;
+    gap: 10px;
 }
 
 input,
 textarea {
     padding: 12px;
-    margin-top: 5px;
     border-radius: 8px;
     border: 1px solid #888;
 }
 
 button {
-    margin-top: 15px;
     padding: 12px;
-    background-color: #222;
+    background: var(--button-color);
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
 }
 
-button:hover {
-    background-color: #444;
+/* Tablet View */
+@media (min-width: 768px) {
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop View */
+@media (min-width: 1024px) {
+
+    main {
+        grid-template-columns: repeat(3, 1fr);
+        width: 90%;
+        margin: auto;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        margin-left: 30px;
+    }
+
+    nav ul {
+        margin-right: 30px;
+    }
 }
 
 /* Footer */
 footer {
-    background-color: #222;
+    background: var(--header-color);
     color: white;
     text-align: center;
     padding: 15px;
-    margin-top: 40px;
+    margin-top: 30px;
+}
+/* Center list items */
+ul {
+    list-style-position: inside;
 }
 
-/* Mobile devices */
-@media (max-width: 768px) {
-    main {
-        width: 95%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    section h2 {
-        font-size: 26px;
-    }
-
-    img {
-        width: 150px;
-        height: 200px;
-    }
+/* Better paragraph spacing */
+p {
+    margin: 10px auto;
+    max-width: 700px;
 }

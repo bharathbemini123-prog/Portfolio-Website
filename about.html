@@ -24,6 +24,7 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+    <button onclick="toggleTheme()">🌙 Theme</button>
 </header>
 
 <main>
@@ -69,7 +70,11 @@
 <footer>
     <p>&copy; 2026 Bharath Kumar. All Rights Reserved.</p>
 </footer>
-
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle("dark-mode");
+    }
+    </script>
 
 </body>
 </html>
